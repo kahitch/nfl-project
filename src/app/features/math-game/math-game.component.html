@@ -1,0 +1,39 @@
+<section *ngIf="(stillPlaying$ | async)">
+
+  <h3>{{ (currentQuestion$ | async )?.question }}</h3>
+
+  <div>
+    <div class="form-group">
+      <label for="answer">Answer:</label>
+      <input type="number"
+             #guess
+             class="form-control">
+      <input type="hidden"
+             [value]="(currentQuestion$ | async)?.answer"
+             #answer>
+      <input type="button"
+             (click)="provideAnswer(answer.value, guess) "
+             class="btn btn-success"
+             value="Answer">
+      <div [hidden]="!wrong"
+           class="alert alert-danger">Wrong!</div>
+    </div>
+  </div>
+
+</section>
+<div *ngIf="gameOverWin$ | async"
+     class="alert alert-success">
+  <h3>You Win!</h3>
+  <input type="button"
+         class="btn btn-primary"
+         value="Play Again!"
+         (click)="replay()">
+</div>
+<div *ngIf="gameOverLose$ | async"
+     class="alert alert-danger">
+  <h3>YOU LOSE!</h3>
+  <input type="button"
+         class="btn btn-primary"
+         value="Play Again!"
+         (click)="replay()">
+</div>

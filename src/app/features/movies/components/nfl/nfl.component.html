@@ -1,0 +1,35 @@
+<div class="btn-group">
+
+  <button *ngFor="let week of weeks" (click)="this.setWeek(week)">{{week}}</button>
+</div>
+<div class="row">
+  <div class="col-lg-2 text-uppercase"><b>Matchup</b></div>
+  <div class="col-lg-2 text-uppercase"><b>Date/Time</b></div>
+  <div class="col-lg-2 text-uppercase"><b>Visitor</b></div>
+  <div class="col-lg-1 text-uppercase"><b>Score</b></div>
+  <div class="col-lg-2 text-uppercase"><b>Home</b></div>
+  <div class="col-lg-1 text-uppercase"><b>Score</b></div>
+  <div class="col-lg-1 text-uppercase"><b>Winner</b></div>
+</div>
+<div class="row" *ngFor="let game of gameData">
+  <div class="col-lg-2 text-uppercase">{{game.v}} @ {{game.h}}</div>
+  <div class="col-lg-2 text-uppercase">{{gameDate(game)}} {{game.d}} {{game.t}}</div>
+  <div class="col-lg-2 text-uppercase">{{game.vnn}}</div>
+  <div class="col-lg-1 text-uppercase">{{game.vs}}</div>
+  <div class="col-lg-2 text-uppercase">{{game.hnn}}</div>
+  <div class="col-lg-1 text-uppercase">{{game.hs}}</div>
+  <div class="col-lg-1 text-uppercase"><b>{{winner(game)}}</b></div>
+</div>
+<div class="row">
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"></div>
+  <div class="col-lg-1 text-uppercase"><b>Tiebreak:</b></div>
+  <div class="col-lg-1 text-uppercase"><b>{{tieBreakTotal()}}</b></div>
+</div>
